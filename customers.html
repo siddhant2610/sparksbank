@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Accounts</title>
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="assets/css/customer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="navbar-data">
+        <a href="index.html"><img src="https://www.thesparksfoundationsingapore.org/images/logo_small.png"
+                alt="TSP's logo" width="35" height="50"></a>
+        <h1>Sparks Bank</h1>
+    </div>
+    <div class="header">
+        <img class="img-VAC" src="https://www.thesparksfoundationsingapore.org/images/logo_small.png" alt="TSP's logo">
+    </div>
+
+    <div class="my-info text-center name-text">
+        <h2>Name: Siddhant</h2>
+        <h4>Bank Balance: $<span id="myAccountBalance">15000</span></h4>
+
+        <button class="btn btn-info" data-toggle="modal" data-target="#sendMoney">Send Money</button>
+        <button class="btn btn-info" href="" data-toggle="modal" data-target="#transactionHistory">See All
+            Transactions</button>
+    </div>
+
+    <!-- Modal send money -->
+    <div class="modal fade" id="sendMoney" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Send Money</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="input-group mb-3">
+                            <input type="text" id="enterName" class="form-control" placeholder="Recipient's username"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">@email.com</span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="text" id="enterAmount" class="form-control" placeholder=" Enter Amount"
+                                aria-label="Amount (to the nearest dollar)">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="sendMoney()" class="btn btn-success" data-dismiss="modal">Send
+                        Money</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal transaction History-->
+    <div class="modal fade" id="transactionHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Transaction History</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ol id="transaction-history-body">
+
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- table  -->
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead class="table-text">
+                    <tr class="table-danger">
+                        <th scope="col">S.No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Balance(in $)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-light">
+                        <td scope="row">1</td>
+                        <td>Anmol</td>
+                        <td>anmol@email.com</td>
+                        <td>
+                            <p id="arjunBankBalance">1000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td scope="row">2</td>
+                        <td>Jagraj</td>
+                        <td>jagraj@email.com</td>
+                        <td>
+                            <p id="sureshBankBalance">2000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">3</td>
+                        <td>Anamik</td>
+                        <td>anamik@email.com</td>
+                        <td>
+                            <p id="abhiBankBalance">3000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td scope="row">4</td>
+                        <td>Chayan</td>
+                        <td>chayan@email.com</td>
+                        <td>
+                            <p id="rameshBankBalance">4000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">5</td>
+                        <td>Manan</td>
+                        <td>manan@email.com</td>
+                        <td>
+                            <p id="hariBankBalance">5000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td scope="row">6</td>
+                        <td>Nitesh</td>
+                        <td>nitesh@email.com</td>
+                        <td>
+                            <p id="venkyBankBalance">6000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td>7</td>
+                        <td>Bharat</td>
+                        <td>bharat@email.com</td>
+                        <td>
+                            <p id="sunilBankBalance">7000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td scope="row">8</td>
+                        <td>Naman</td>
+                        <td>naman@email.com</td>
+                        <td>
+                            <p id="sameerBankBalance">8000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">9</td>
+                        <td>Ritesh</td>
+                        <td>ritesh@email.com</td>
+                        <td>
+                            <p id="maheshBankBalance">9000</p>
+                        </td>
+                    </tr>
+                    <tr class="table-info">
+                        <td scope="row">10</td>
+                        <td>Utkarsh</td>
+                        <td>utkarsh@email.com</td>
+                        <td>
+                            <p id="ramuBankBalance">1000</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="back-button">
+        <a href="index.html"><button class=" buttonCenter">Back</button></a>
+    </div>
+
+    <div class="footer">
+        <h6>Made by Siddhant Upadhyay,<br>&copy; For Sparks Foundation</h6>
+    </div>
+
+    <script>
+        let myAccountBalance = parseInt(document.getElementById("myAccountBalance").innerText);
+
+        function sendMoney() {
+            var enterName = document.getElementById("enterName").value;
+            var enterAmount = parseInt(document.getElementById("enterAmount").value);
+
+            if (enterAmount > 15000) {
+                alert("Insufficient Balance.")
+            } else {
+                var findUserBankAccount = enterName + "BankBalance";
+                var finalAmount = parseInt(document.getElementById(findUserBankAccount).innerHTML) + enterAmount;
+                var myAccountBalance = parseInt(document.getElementById("myAccountBalance").innerText) - enterAmount
+                document.getElementById("myAccountBalance").innerText = myAccountBalance
+                document.getElementById(findUserBankAccount).innerHTML = finalAmount;
+                alert(`Successful Transaction !!  
+        $${enterAmount} is sent to ${enterName}@email.com.`)
+
+                // transaction history 
+                var createPTag = document.createElement("li");
+                var textNode = document.createTextNode(`$${enterAmount} is sent to recepient with Email-id ${enterName}@email.com on ${Date()}.`);
+                createPTag.appendChild(textNode);
+                var element = document.getElementById("transaction-history-body");
+                element.insertBefore(createPTag, element.firstChild);
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+</body>
+
+</html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300&display=swap');
+
+
+    body {
+        background-color: #8cc0de;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .navbar-data {
+        display: flex;
+        justify-content: space-around;
+        background-color: #7ba8c2;
+        color: #D0C9C0;
+        font-family: 'Kdam Thmor Pro', sans-serif;
+    }
+
+
+    .name-text {
+        font-family: 'Red Hat Display', sans-serif;
+        color: #fafdd6;
+    }
+
+    .table-text {
+        font-family: 'Kdam Thmor Pro', sans-serif;
+        color: #fafdd6;
+    }
+
+    .buttonCenter {
+        margin: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        background-color: #FFD9C0;
+        font-size: 15px;
+        transition: 0.6s;
+        text-decoration: none;
+    }
+
+    .buttonCenter:hover {
+        background-color: #F4BFBF;
+        transform: translateY(-7px);
+    }
+
+    .button-back {
+        margin: 20px;
+        font-size: 24px;
+        text-decoration: none;
+        color: white;
+        transition: .7s;
+    }
+
+    .button-back:hover {
+        color: #FFD9C0;
+        text-decoration: none;
+    }
+
+    .my-info {
+        padding: 2rem 5rem;
+    }
+
+    .btn-info {
+        padding: 1rem 1.2rem;
+        background-color: #ffd9c0;
+        color: #fff !important;
+        margin-left: 5px;
+        padding: 0.75rem;
+        transition: all 0.7s;
+        border-radius: 3px;
+    }
+
+    .btn-info:hover {
+        background-color: #F4BFBF;
+        transform: translateY(-3px);
+        border-radius: 4px;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 125px;
+    }
+</style>
